@@ -3,4 +3,26 @@
 
     <string name="hello_world">Oláááááááááá, enfermeira! :D</string>
     <string name="action_settings">Settings</string>
+    <string name="title_activity_lista_localidades">ListaLocalidades</string>
+
+    <string-array name="header_titles">
+        <item>Salas</item>
+        <item>Labs</item>
+        <item>Outros</item>
+    </string-array>
+
+    <string-array name="salas_itens">
+        <item>354</item>
+        <item>355</item>
+        <item>356</item>
+    </string-array>
+    <string-array name="labs_itens">
+        <item>311</item>
+        <item>318</item>
+        <item>317</item>
+    </string-array>
+    <string-array name="outros_itens">
+        <item>NSI</item>
+        <item>Coordenação</item>
+    </string-array>
 </resources>

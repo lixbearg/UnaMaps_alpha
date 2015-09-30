@@ -1,12 +1,14 @@
 package com.example.lixbearg.testapp;
 
 import android.app.Activity;
+import android.app.ExpandableListActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.util.Log;
+import android.widget.ExpandableListView;
 import android.widget.Toast;
 
 public class HomeScreen extends Activity {
