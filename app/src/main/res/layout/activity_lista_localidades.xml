@@ -3,7 +3,7 @@
     android:layout_height="match_parent"
     tools:context="com.example.lixbearg.testapp.ListaLocalidades"
     android:orientation="vertical"
-    android:background="#DDDDDD">
+    android:background="@android:color/white">
 
     <ExpandableListView
         android:layout_width="match_parent"

@@ -1,5 +1,6 @@
 package com.example.lixbearg.testapp;
 
+import android.app.ActionBar;
 import android.app.Activity;
 import android.os.Bundle;
 import android.view.Menu;
@@ -17,6 +18,9 @@ public class ListaLocalidades extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_lista_localidades);
+
+        ActionBar actionBar = getActionBar();
+        actionBar.setDisplayHomeAsUpEnabled(true);
 
         expandableListView = (ExpandableListView)findViewById(R.id.expListaSalas);
 
@@ -66,10 +70,11 @@ public class ListaLocalidades extends Activity {
         int id = item.getItemId();
 
         //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
-            return true;
+        switch (item.getItemId()) {
+            case android.R.id.home:
+                this.finish();
+                return true;
         }
-
         return super.onOptionsItemSelected(item);
     }
 }

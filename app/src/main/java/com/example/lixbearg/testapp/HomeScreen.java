@@ -41,6 +41,9 @@ public class HomeScreen extends Activity {
             case R.id.action_lerqrcode:
                 lerQrCode();
                 return true;
+            case R.id.action_listaLocalidades:
+                Intent intent = new Intent(this, ListaLocalidades.class);
+                startActivity(intent);
             default:
                 return super.onOptionsItemSelected(item);
         }
@@ -56,9 +59,8 @@ public class HomeScreen extends Activity {
         IntentResult scanningResult = IntentIntegrator.parseActivityResult(requestCode, resultCode, intent);
         if (scanningResult != null)
             moveImagem(scanningResult.getContents());
-//        else
-//            img.setImageResource(R.drawable.maps_alpha);
-//            Toast.makeText(HomeScreen.this, "QRCode não reconhecido!", Toast.LENGTH_LONG).show();
+        else
+            Toast.makeText(HomeScreen.this, "QRCode não reconhecido!", Toast.LENGTH_LONG).show();
     }
 
     private void moveImagem(String QRCode) {

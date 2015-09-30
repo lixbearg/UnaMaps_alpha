@@ -2,7 +2,7 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
 android:orientation="vertical" android:layout_width="match_parent"
 android:layout_height="40dp"
-android:background="#BBBBBB">
+    android:background="@android:color/white">
 
 <TextView
     android:id="@+id/child_item"
@@ -11,6 +11,6 @@ android:background="#BBBBBB">
     android:text="Mini motherfucker"
     android:textSize="20dp"
     android:gravity="center_vertical"
-    android:layout_marginLeft="30dp"/>
+    android:layout_marginLeft="60dp"/>
 
 </LinearLayout>

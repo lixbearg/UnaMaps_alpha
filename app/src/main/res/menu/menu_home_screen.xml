@@ -1,9 +1,23 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools" tools:context=".HomeScreen">
-    <item android:id="@+id/action_lerqrcode"
-          android:icon="@drawable/lerqr"
-          android:title="Ler QRCode"
-          android:showAsAction="ifRoom" />
-    <item android:id="@+id/action_settings" android:title="Ajuda"
-          android:orderInCategory="100" android:showAsAction="never" />
+    <item
+        android:id="@+id/action_listaLocalidades"
+        android:icon="@drawable/listalocalidades"
+        android:title="Ler QRCode"
+        android:showAsAction="always" />
+    <item
+        android:id="@+id/action_lerqrcode"
+        android:icon="@drawable/lerqr"
+        android:title="Ler QRCode"
+        android:showAsAction="always" />
+    <item
+        android:id="@+id/action_ajuda"
+        android:title="Ajuda"
+        android:orderInCategory="100"
+        android:showAsAction="never" />
+    <item
+        android:id="@+id/action_sobre"
+        android:title="Sobre"
+        android:orderInCategory="100"
+        android:showAsAction="never" />
 </menu>
