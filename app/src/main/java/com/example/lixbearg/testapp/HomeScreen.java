@@ -1,15 +1,12 @@
 package com.example.lixbearg.testapp;
 
-import android.app.Activity;
-import android.app.ExpandableListActivity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
-import android.util.Log;
 import android.view.View;
-import android.widget.ExpandableListView;
 import android.widget.ImageView;
 import android.widget.Toast;
 
@@ -20,21 +17,17 @@ public class HomeScreen extends TileViewActivity {
 
     private final String TAG = "TKT";
     private TouchImageView img;
+    private ImageView pimageview;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        //setContentView(R.layout.home_screen);
-        Log.d(TAG, "Método onCreate");
-//        img = (TouchImageView) findViewById(R.id.mapa);
-//        img.setMaxZoom(6f);
-//        img.setZoom(1.5f);
 
-        //Tileview
+        ///////////////////TILEVIEW
+
         TileView tileView = getTileView();
         tileView.setSize(1200, 1051);  // the original size of the untiled image
         tileView.addDetailLevel(1f, "tile-%row%-%col%.png", "samples/maps_alpha.jpg");
-
 
         // let's use 0-1 positioning...
         tileView.defineRelativeBounds(0, 0, 1, 1);
@@ -45,22 +38,23 @@ public class HomeScreen extends TileViewActivity {
         // add a marker listener
         tileView.addMarkerEventListener(markerEventListener);
 
-        // add some pins...
-        addPin( 0.213f, 0.478f );
-
         // scale it down to manageable size
-        tileView.setScale( 0.5 );
+        tileView.setScale(0.5);
 
         // center the frame
-        frameTo( 0.5, 0.5 );
+        frameTo(0.5, 0.5);
 
         setContentView(tileView);
+
     }
 
     private void addPin( double x, double y ) {
-        ImageView imageView = new ImageView( this );
-        imageView.setImageResource( R.drawable.pin );
-        getTileView().addMarker( imageView, x, y );
+//        ImageView imageView;
+//        imageView = new ImageView( this );
+//        pimageview.setImageResource( R.drawable.pin );
+        pimageview = new ImageView( this );
+        pimageview.setImageResource( R.drawable.pin );
+        getTileView().addMarker( pimageview, x, y);
     }
 
     private MarkerEventListener markerEventListener = new MarkerEventListener() {
@@ -69,6 +63,8 @@ public class HomeScreen extends TileViewActivity {
             Toast.makeText( getApplicationContext(), "You tapped a pin", Toast.LENGTH_LONG ).show();
         }
     };
+
+    ///////////////////ACTION BAR
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -93,10 +89,13 @@ public class HomeScreen extends TileViewActivity {
         }
     }
 
+    ///////////////////QR CODE
+
     public void lerQrCode(){
             Log.d(TAG, "Onclick");
+
             IntentIntegrator scanIntegrator = new IntentIntegrator(this);
-            scanIntegrator.initiateScan();
+        scanIntegrator.initiateScan();
     }
 
     public void onActivityResult(int requestCode, int resultCode, Intent intent) {
@@ -108,17 +107,23 @@ public class HomeScreen extends TileViewActivity {
     }
 
     private void moveImagem(String QRCode) {
+
+        getTileView().removeMarker(pimageview);
+
         switch (QRCode) {
-            case "L311": img.setZoom(6f, 0.213f, 0.478f);
-                img.setImageResource(R.drawable.maps_alpha_l311);
+            case "L311":
+                addPin(0.213f, 0.478f);
+                frameTo(0.213f, 0.478f);
                 Toast.makeText(HomeScreen.this, "Laboratório de Informática 311", Toast.LENGTH_LONG).show();
                 break;
-            case "ISM1": img.setZoom(6f, 0.111f, 0.290f);
-                img.setImageResource(R.drawable.maps_alpha_ism1);
+            case "ISM1":
+                addPin(0.111f, 0.290f);
+                frameTo(0.111f, 0.290f);
                 Toast.makeText(HomeScreen.this, "Banheiro Masculino", Toast.LENGTH_LONG).show();
                 break;
-            case "ELV1": img.setZoom(6f, 0.620f, 0.471f);
-                img.setImageResource(R.drawable.maps_alpha_elv1);
+            case "ELV1":
+                addPin(0.620f, 0.471f);
+                frameTo(0.620f, 0.471f);
                 Toast.makeText(HomeScreen.this, "Elevadores", Toast.LENGTH_LONG).show();
                 break;
 //            default: img.setZoom(1f);
