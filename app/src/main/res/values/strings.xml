@@ -12,6 +12,7 @@
     </string-array>
 
     <string-array name="salas_itens">
+        <item>311</item>
         <item>354</item>
         <item>355</item>
         <item>356</item>
@@ -25,4 +26,5 @@
         <item>NSI</item>
         <item>Coordenação</item>
     </string-array>
+    <string name="title_activity_welcome">WelcomeActivity</string>
 </resources>

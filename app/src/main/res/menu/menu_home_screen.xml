@@ -2,7 +2,7 @@
     xmlns:tools="http://schemas.android.com/tools" tools:context=".HomeScreen">
     <item
         android:id="@+id/action_listaLocalidades"
-        android:icon="@drawable/lista"
+        android:icon="@drawable/listalocalidades"
         android:title="Ler QRCode"
         android:showAsAction="always" />
     <item
@@ -11,13 +11,22 @@
         android:title="Ler QRCode"
         android:showAsAction="always" />
     <item
-        android:id="@+id/action_ajuda"
-        android:title="Ajuda"
+        android:id="@+id/action_fogOff"
+        android:title="Fog off"
         android:orderInCategory="100"
         android:showAsAction="never" />
     <item
-        android:id="@+id/action_sobre"
-        android:title="Sobre"
+        android:id="@+id/action_fog1"
+        android:title="Fog 1"
         android:orderInCategory="100"
+        android:showAsAction="never" />
+    <item
+        android:id="@+id/action_fog2"
+        android:title="Fog 2"
+        android:orderInCategory="100"
+        android:showAsAction="never" />
+    <item
+        android:id="@+id/action_tutorial"
+        android:title="Tutorial on"
         android:showAsAction="never" />
 </menu>

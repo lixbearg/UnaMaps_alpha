@@ -2,9 +2,12 @@ package com.example.lixbearg.testapp;
 
 import android.app.ActionBar;
 import android.app.Activity;
+import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.ExpandableListView;
 
 import java.util.ArrayList;
@@ -51,8 +54,24 @@ public class ListaLocalidades extends Activity {
         ChildList.put(Headings.get(1), Labs);
         ChildList.put(Headings.get(2), Outros);
 
-        ListaAdapter listaAdapter = new ListaAdapter(this, Headings, ChildList);
+        final ListaAdapter listaAdapter = new ListaAdapter(this, Headings, ChildList);
         expandableListView.setAdapter(listaAdapter);
+
+        expandableListView.setOnChildClickListener(new ExpandableListView.OnChildClickListener() {
+            @Override
+            public boolean onChildClick(ExpandableListView parent, View v, int groupPosition, int childPosition, long id) {
+                String localidade = (String)listaAdapter.getChild(groupPosition, childPosition);
+                Intent intent = new Intent();
+                intent.putExtra("QRCODE", localidade);
+                setResult(1 ,intent);
+                finish();
+                return true;
+            }
+        });
+    }
+
+    private Context getContext() {
+        return this;
     }
 
     @Override
